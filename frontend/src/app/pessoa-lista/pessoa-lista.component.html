@@ -1,0 +1,29 @@
+<!-- <ul>
+    <li *ngFor="let pessoa of pessoas">
+        {{ pessoa.nome }}
+    </li>
+</ul> -->
+
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>E-mail</th>
+        <th>Sexo</th>
+        <th>Data de nascimento</th>
+        <th>Ações</th>
+    </tr>
+    <tr *ngFor="let pessoa of pessoas">
+        <td>{{pessoa.id}}</td>
+        <td>{{pessoa.nome}}</td>
+        <td>{{pessoa.cpf}}</td>
+        <td>{{pessoa.email}}</td>
+        <td>{{pessoa.sexo == "m" || pessoa.sexo == "M" ? "M" : "F"}}</td>
+        <td>{{pessoa.dataDeNascimento}}</td>
+        <td>
+            <span class="glyphicon glyphicon-edit" (click)="editar(pessoa)"></span>
+            <span class="glyphicon glyphicon-remove" (click)="remover(pessoa)"></span>
+        </td>
+    </tr>
+</table>

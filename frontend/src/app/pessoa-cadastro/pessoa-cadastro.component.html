@@ -1,0 +1,93 @@
+<form class="form-horizontal" style="max-width: 1000px;">
+    <fieldset>
+        <div class="panel panel-primary" style="align-items: center;">
+            <div class="panel-heading">Cadastro de Pessoas</div>
+            <div [hidden]="!exibir" class="row" style="margin-top: 10px; margin-bottom: -40; margin-left: 182px; max-width: 600px;">
+                <div class="alert alert-danger " role="alert">
+                    CPF inválido ou E-mail inválido
+                </div>
+            </div>
+
+            <div class="panel-body">
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Nome">Nome</label>
+                    <div class="col-md-9">
+                        <input id="Nome" name="Nome" placeholder="" class="form-control input-md"
+                            [(ngModel)]='pessoa.nome' type="text">
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Nome">CPF</label>
+                    <div class="col-md-2">
+                        <input id="cpf" name="cpf" placeholder="Apenas números" class="form-control input-md"
+                            [(ngModel)]='pessoa.cpf' type="text" maxlength="11" pattern="[0-9]+$">
+                    </div>
+
+                    <label class="col-md-1 control-label" for="Nome">Nascimento</label>
+                    <div class="col-md-3">
+                        <input type="date" id="dtnasc" name="dtnasc"  class="form-control input-md"
+                            [(ngModel)] ='pessoa.dataDeNascimento'  maxlength="10">
+                        <!-- <p-calendar [(ngModel)]='pessoa.dataDeNascimento' dateFormat="dd/mm/yy" [monthNavigator]="true" [yearNavigator]="true" yearRange="1870:2050"
+                            placeholder="dd/MM/yyyy"></p-calendar> -->
+                    </div>
+
+                    <label class="col-md-1 control-label" for="sexo">Sexo</label>
+                    <div class="col-md-2">
+                        <select [(ngModel)]='pessoa.sexo' id="sexo" name="sexo" class="form-control">
+                            <!-- <option value="" selected>Selecione</option> -->
+                            <option value="m">Masculino</option>
+                            <option value="f">Feminino</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Prepended text-->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="email">Email</label>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input [(ngModel)]='pessoa.email' id="email" name="email" class="form-control"
+                                placeholder="email@email.com" type="text"
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Naturalidade">Naturalidade</label>
+                    <div class="col-md-4">
+                        <input [(ngModel)]='pessoa.naturalidade' id="Naturalidade" name="Naturalidade" placeholder=""
+                            class="form-control input-md" type="text">
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Nacionalidade">Nacionalidade</label>
+                    <div class="col-md-4">
+                        <input [(ngModel)]='pessoa.nacionalidade' id="Nacionalidade" name="Nacionalidade" placeholder=""
+                            class="form-control input-md" type="text">
+                    </div>
+                </div>
+
+                <!-- Button (Double) -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Cadastrar"></label>
+                    <div class="col-md-8">
+                        <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit"
+                            (click)="salvar()">Cadastrar</button>
+                        <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset"
+                            style="margin-left: 5px;">Cancelar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </fieldset>
+</form>
